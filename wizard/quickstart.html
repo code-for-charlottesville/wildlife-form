@@ -71,11 +71,19 @@
                         <h4 class="mb-2">Step 3:</h4>
                         <div class="container mb-3">
                             <p class="mb-1">
-                                Return to the Google Form and under more options select "Get pre-filled link". Then
-                                enter dummy responses into <b>only</b> required question
-                                (marked with a red asterisks). Do not provide responses for non-required questions.
+                                Return to the Google Form.
                             </p>
-                            <i
+                            <ol>
+                                <li>
+                                    Select the Publish button in the top right corner, click Manage, and share the Responder view link. <br>
+                                    Be sure to click Publish after clicking Done
+                                </li>
+                                <li>Under more options select "Get pre-filled link". Then
+                                enter dummy responses into <b>all</b> required question
+                                (marked with a red asterisks). Do not provide responses for non-required questions.
+                                </li>
+                            </ol>
+                            <i class = "mt-1"
                             >Note the responses do not need be real patient data, but try to provide a realistic
                                 example. Once you have entered responses into each of the
                                 form's required fields, click "Get link" at the bottom of the form. Then click "COPY
@@ -119,6 +127,19 @@
                         </div>
                         <hr/>
                         <h4 class="mb-2">Step 7:</h4>
+                        <div class="container mb-2">
+                            <p> Select the green button that says "I understand my workflows, go ahead and enable them" at the link below. </p>
+                            <button id="githubActionButton" class="github-btn mb-3" onclick="githubActionAuthorize()">Authorize Site Script</button>
+                        <p>
+                           The following button will take you to the GitHub Pages settings. <br>
+                            Change the build and deployment source to GitHub Actions.
+                        </p>
+                        </div>
+                        <div class="container mb-3">
+                            <button id="githubPagesButton" class="github-btn" onclick="githubPagesAuthorize()">Enable GitHub Pages</button>
+                        </div>
+                        <hr/>
+                        <h4 class="mb-2">Step 8:</h4>
                         <div class="container mb-3">
                             <p>Click below to copy your generated site configuration.</p>
                             <button id="githubCopyButton" class="github-btn" onclick="githubCopyConfig()">Copy configuration</button>
@@ -127,7 +148,7 @@
                             <p></p>
                         </div>
                         <hr/>
-                        <h4 class="mb-2">Step 8:</h4>
+                        <h4 class="mb-2">Step 9:</h4>
                         <div class="container mb-3">
                             <p>Replace the contents of the config.json file with your copied configuration.</p>
                             <button id="githubJsonButton" class="github-btn" onclick="githubEditConfig()">
@@ -139,10 +160,10 @@
                             <br>Check to make sure you don't have any errors</p>
                         <div id="step9" style="display: none">
                             <hr/>
-                            <h4 class="mb-2" >Step 9:</h4>
+                            <h4 class="mb-2" >Step 10:</h4>
                             <p>Once you have waited a minute or two, click the button below to navigate to your site.</p>
                             <div class="container mb-3">
-                                <button id="githubPagesButton" class="github-btn" onclick="githubGotoSite()">Go to your site</button>
+                                <button id="githubSiteButton" class="github-btn" onclick="githubGotoSite()">Go to your site</button>
                             </div>
                         </div>
                         <hr/>

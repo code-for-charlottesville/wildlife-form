@@ -86,7 +86,6 @@ function validatePrefilledLink() {
         .replace(/:/g, ': ')
     console.log(json.output)
 }
-
 // github
 
 window.githubSignup = function() {
@@ -114,12 +113,22 @@ function validateGithub(){
 const GithubLocation = {
     INVALID: 0,
     FORK: 1,
-    JSON: 2,
-    SITE: 3,
+    ACTIONS: 2,
+    PAGES: 3,
+    JSON: 4,
+    SITE: 5,
 }
 
 window.githubUserFork = function() {
     goToGithub(GithubLocation.FORK)
+}
+
+window.githubActionAuthorize = function () {
+    goToGithub(GithubLocation.ACTIONS)
+}
+
+window.githubPagesAuthorize = function () {
+    goToGithub(GithubLocation.PAGES)
 }
 
 window.githubEditConfig = function() {
@@ -153,8 +162,8 @@ window.githubCopyConfig = function () {
 }
 
 let siteSetup = false
-let step9 = document.getElementById("step9")
-let step9Error = document.getElementById("step9-error")
+let step10 = document.getElementById("step10")
+let step10Error = document.getElementById("step10-error")
 
 window.githubGotoSite = function (){
     goToGithub(GithubLocation.SITE)
@@ -167,8 +176,8 @@ function goToGithub(location /* of type GithubLocation*/){
         github_input.click()
         if(siteSetup) {
             siteSetup = false
-            step9.style.display = "none"
-            step9Error.style.display = "block"
+            step10.style.display = "none"
+            step10Error.style.display = "block"
         }
         return
     }
@@ -177,6 +186,12 @@ function goToGithub(location /* of type GithubLocation*/){
         case GithubLocation.FORK:
             githubUrl = org + "/" + repo + "/fork"
             break;
+        case GithubLocation.ACTIONS:
+            githubUrl = github.username + "/" + repo + "/actions"
+            break;
+        case GithubLocation.PAGES:
+            githubUrl = github.username + "/" + repo + "/settings/pages"
+            break;
         case GithubLocation.JSON:
             githubCopyConfig()
             if (json.output === undefined){
@@ -184,8 +199,8 @@ function goToGithub(location /* of type GithubLocation*/){
             }
             githubUrl = github.username + "/" + repo + "/edit/" + branch_name + "/config.json"
             setTimeout(function () {
-                step9.style.display = "block"
-                step9Error.style.display = "none"
+                step10.style.display = "block"
+                step10Error.style.display = "none"
                 siteSetup = true
             }, 1000)
             break;
